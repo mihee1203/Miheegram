@@ -23,8 +23,8 @@ if __name__ == "__main__":
         raise
 
     # This allows easy placement of apps within the interior
-    # n directory.
+    # miheegram directory.
     current_path = os.path.dirname(os.path.abspath(__file__))
-    sys.path.append(os.path.join(current_path, "n"))
+    sys.path.append(os.path.join(current_path, "miheegram"))
 
     execute_from_command_line(sys.argv)

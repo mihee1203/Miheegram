@@ -4,8 +4,8 @@ Base settings to build other settings files upon.
 
 import environ
 
-ROOT_DIR = environ.Path(__file__) - 3  # (n/config/settings/base.py - 3 = n/)
-APPS_DIR = ROOT_DIR.path('n')
+ROOT_DIR = environ.Path(__file__) - 3  # (miheegram/config/settings/base.py - 3 = miheegram/)
+APPS_DIR = ROOT_DIR.path('miheegram')
 
 env = environ.Env()
 
@@ -39,7 +39,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres:///n'),
+    'default': env.db('DATABASE_URL', default='postgres://localhost/miheegram'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -70,7 +70,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
 ]
 LOCAL_APPS = [
-    'n.users.apps.UsersConfig',
+    'miheegram.users.apps.UsersConfig',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -80,7 +80,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
 MIGRATION_MODULES = {
-    'sites': 'n.contrib.sites.migrations'
+    'sites': 'miheegram.contrib.sites.migrations'
 }
 
 # AUTHENTICATION
@@ -215,7 +215,7 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 ADMIN_URL = 'admin/'
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [
-    ("""Mihee Coders""", 'Cloning IG with Py'),
+    ("""mihee Coders""", 'happy-mihee@hanmial.net'),
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
@@ -231,9 +231,9 @@ ACCOUNT_EMAIL_REQUIRED = True
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ADAPTER = 'n.users.adapters.AccountAdapter'
+ACCOUNT_ADAPTER = 'miheegram.users.adapters.AccountAdapter'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-SOCIALACCOUNT_ADAPTER = 'n.users.adapters.SocialAccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'miheegram.users.adapters.SocialAccountAdapter'
 
 
 # Your stuff...
